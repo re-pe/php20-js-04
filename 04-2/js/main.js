@@ -3,7 +3,7 @@
     const okBtn = document.querySelector('#okBtn');
     const progressBar = document.querySelector('#progressBar');
     const classNames = ['bg-danger', 'bg-info', 'bg-success'];
-    const classRegExp = /\bbg-.+?\b/g;
+    const rxBgClasses = /\bbg-.+?\b/g;
 
     const getProgressClass = () => {
         const val = Number(numVal.value);
@@ -21,10 +21,10 @@
         progressBar.setAttribute('aria-valuenow', `${numVal.value}`);
     }
 
-    const handleEvents = () => {
+    const changeProgressBarWidth = () => {
         const barClass = getProgressClass();
-        progressBar.className = progressBar.className.replace(classRegExp, '');
-        progressBar.classList.toggle(barClass);
+        progressBar.className = progressBar.className.replace(rxBgClasses, '');
+        progressBar.classList.add(barClass);
         setProgressBarWidth();
     }
 
@@ -41,11 +41,11 @@
         if (!["Enter", "NumpadEnter"].includes(event.code)) {
             return;
         }
-        handleEvents();
+        changeProgressBarWidth();
     })
 
     okBtn.addEventListener('click', (event) => {
-        handleEvents();
+        changeProgressBarWidth();
     })
 })();
 
