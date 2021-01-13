@@ -11,23 +11,24 @@
     </head>
 
     <body>
-        <form id="form" class="container needs-validation" novalidate>
-            <div class="row my-1">
-                <div class="col-4">
-                    <input class="form-control" id="ak" type="number" pattern="^[0-9]{11}$" minlength="11" maxlength="11" data-value="" />
+        <div class="container">
+            <form name="form" class="row needs-validation" novalidate>
+                <div class="row my-1">
+                    <div class="col-4">
+                        <label for="ak" class="form-label">Asmens kodas</label>
+                        <input type="text" class="form-control" id="ak" pattern="^[0-9]{11}$" data-value="" required>
+                        <div id="feedback" class="invalid-feedback">
+                            Prašome įvesti teisingą asmens kodą.
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row my-1">
-                <div class="col-4">
-                    <input id="submit" type="submit" class="btn btn-primary" value="Tikrinti" />
+                <div class="row my-1">
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">Tikrinti</button>
+                    </div>
                 </div>
-            </div>
-            <div class="row my-1">
-                <div class="col-4">
-                    <p>Labas</p>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
         <script src="js/main.js"></script>
     </body>
 
